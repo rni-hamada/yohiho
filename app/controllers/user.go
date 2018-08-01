@@ -4,24 +4,16 @@ import (
 	"math/rand"
 
 	"github.com/gin-gonic/gin"
-	"github.com/rni-hamada/yohiho/app/db"
 	"github.com/rni-hamada/yohiho/app/models"
 )
 
 func User(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"contents": models.GetUser(),
-	})
+	c.JSON(200, models.GetUser())
 }
 
 func Worker(c *gin.Context) {
-	var workers []models.Worker
 	user := models.GetUser()
-	db.Handler.Model(&user).Related(&workers)
-
-	c.JSON(200, gin.H{
-		"contents": workers,
-	})
+	c.JSON(200, models.FetchWorkers(&user))
 }
 
 func Gacha(c *gin.Context) {
@@ -43,5 +35,5 @@ func Gacha(c *gin.Context) {
 
 	models.CreateWorker(&worker)
 
-	c.JSON(200, gin.H{"contents": worker})
+	c.JSON(200, worker)
 }

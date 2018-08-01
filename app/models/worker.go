@@ -19,3 +19,9 @@ type Worker struct {
 func CreateWorker(worker *Worker) {
 	db.Handler.Create(worker)
 }
+
+func FetchWorkers(user *User) []Worker {
+	var workers []Worker
+	db.Handler.Model(user).Related(&workers)
+	return workers
+}

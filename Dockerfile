@@ -8,4 +8,4 @@ RUN dep ensure
 RUN go build -o /yohiho .
 
 EXPOSE 8080
-CMD ["/codestat"]
+CMD ["/yohiho"]

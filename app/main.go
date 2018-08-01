@@ -22,6 +22,8 @@ func main() {
 	r.GET("/competition", controllers.Competition)
 	r.POST("/competition/:competition_id/participate", controllers.Participate)
 
+	r.GET("/goat", controllers.Goat)
+
 	r.Run()
 }
 

@@ -20,6 +20,7 @@ func Connect() *gorm.DB {
 	if err != nil {
 		panic("ohno")
 	}
+	db.LogMode(true)
 	Handler = db
 	return db
 }
