@@ -16,12 +16,12 @@ type Worker struct {
 	Pattern string `gorm:"size:255"`
 }
 
-func CreateWorker(worker *Worker) {
-	db.Handler.Create(worker)
+func FetchWorker(workerID uint) Worker {
+	var competition Worker
+	db.Handler.First(&competition, workerID)
+	return competition
 }
 
-func FetchWorkers(user *User) []Worker {
-	var workers []Worker
-	db.Handler.Model(user).Related(&workers)
-	return workers
+func CreateWorker(worker *Worker) {
+	db.Handler.Create(worker)
 }

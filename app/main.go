@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	db.Connect()
+	db.Prepare()
 
 	initializeData()
 
@@ -20,7 +20,7 @@ func main() {
 	r.GET("/worker/gacha", controllers.Gacha)
 
 	r.GET("/competition", controllers.Competition)
-	r.POST("/competition/:competition_id/participate", controllers.Participate)
+	r.GET("/competition/participate", controllers.Participate)
 
 	r.GET("/goat", controllers.Goat)
 

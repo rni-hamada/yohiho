@@ -16,3 +16,9 @@ func GetUser() User {
 	db.Handler.First(&user)
 	return user
 }
+
+func FetchWorkers(user *User) []Worker {
+	var workers []Worker
+	db.Handler.Model(user).Related(&workers)
+	return workers
+}

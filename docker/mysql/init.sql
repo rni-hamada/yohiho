@@ -41,7 +41,7 @@ CREATE TABLE `competitions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `competitors` (
+CREATE TABLE `participants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `competition_id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
